@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upland Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1 class="app-title">Upland Dashboard</h1>
+    <p class="app-subtitle">Weekly strategy at a glance</p>
+  </header>
+
+  <main class="dashboard">
+    <!-- Section 1: Tuesday Mission Checklist -->
+    <section class="card" id="section-missions">
+      <div class="card-header">
+        <h2>Mission Checklist</h2>
+        <span class="badge" id="season-badge">--</span>
+      </div>
+      <div class="card-body" id="missions-body">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Section 2: Sparklet Capacity Monitor -->
+    <section class="card" id="section-sparklet">
+      <div class="card-header">
+        <h2>Sparklet Capacity</h2>
+      </div>
+      <div class="card-body" id="sparklet-body">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Section 3: Yield Dashboard -->
+    <section class="card card--wide" id="section-yield">
+      <div class="card-header">
+        <h2>Yield Dashboard</h2>
+      </div>
+      <div class="card-body" id="yield-body">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Section 4: Optimization Priorities -->
+    <section class="card" id="section-priorities">
+      <div class="card-header">
+        <h2>Optimization Priorities</h2>
+      </div>
+      <div class="card-body" id="priorities-body">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Section 5: Liquidation Decision Gate -->
+    <section class="card card--wide" id="section-liquidation">
+      <div class="card-header">
+        <h2>Liquidation Gate</h2>
+        <span class="signal-indicator" id="liquidation-signal">--</span>
+      </div>
+      <div class="card-body" id="liquidation-body">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- Section 6: Portfolio Data -->
+    <section class="card" id="section-portfolio">
+      <div class="card-header">
+        <h2>Portfolio Data</h2>
+      </div>
+      <div class="card-body" id="portfolio-body">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Upland Dashboard &mdash; Personal strategy tool. All data stored locally.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
