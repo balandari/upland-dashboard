@@ -20,7 +20,12 @@ export default async function handler(req, res) {
     }
   }
 
-  const { type, data } = req.body || {};
+  const { type, data, message } = req.body || {};
+
+  // Upland sends a validation call when registering the webhook URL
+  if (!type && message) {
+    return res.status(200).json({ ok: true });
+  }
 
   if (!type) {
     return res.status(400).json({ error: 'Missing event type' });
