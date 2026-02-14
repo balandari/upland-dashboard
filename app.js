@@ -925,6 +925,7 @@ function initPortfolio() {
   Store.on('sparklet_price', debouncedPortfolioRender);
   Store.on('task_count', debouncedPortfolioRender);
   Store.on('portfolio_value', debouncedPortfolioRender);
+  Store.on('upx_balance', debouncedPortfolioRender);
 }
 
 

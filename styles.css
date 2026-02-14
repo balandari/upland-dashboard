@@ -753,6 +753,50 @@ body {
   .stat-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Ensure add-structure form stacks on narrow screens */
+  .add-structure {
+    flex-wrap: wrap;
+  }
+
+  .add-structure .form-input {
+    min-width: 100%;
+  }
+
+  /* Bar chart: hide bar values on very narrow screens to prevent overlap */
+  .bar-value {
+    font-size: 0.6rem;
+  }
+
+  /* Liquidation inputs single column on narrow */
+  .liquidation-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  /* Prevent stat-value overflow */
+  .stat-value {
+    word-break: break-all;
+  }
+
+  /* Touch targets */
+  .checkbox-row {
+    padding: var(--space-3) 0;
+    min-height: 44px;
+  }
+
+  .toggle-row {
+    padding: var(--space-3) 0;
+    min-height: 44px;
+  }
+
+  /* Signal gate smaller on mobile */
+  .signal-gate {
+    padding: var(--space-4);
+  }
+
+  .signal-gate-label {
+    font-size: var(--text-xl);
+  }
 }
 
 /* --- Utility --- */
