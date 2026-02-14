@@ -41,6 +41,19 @@ const Store = {
   }
 };
 
+// Debounced render helper -- prevents cascading re-renders
+function debouncedRender(renderFn) {
+  let scheduled = false;
+  return function () {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(function () {
+      scheduled = false;
+      renderFn();
+    });
+  };
+}
+
 
 /* --------------------------------------------------------------------------
    SEASON CALENDAR
@@ -472,8 +485,8 @@ function initYield() {
   render();
 
   // Listen for external changes to portfolio value
-  Store.on('portfolio_value', function () { render(); });
-  Store.on('task_count', function () { /* re-render handled by slider event */ });
+  const debouncedYieldRender = debouncedRender(render);
+  Store.on('portfolio_value', debouncedYieldRender);
 }
 
 
@@ -815,11 +828,12 @@ function initLiquidation() {
 
   render();
 
-  // Listen for external changes
-  Store.on('sparklet_balance', function () { render(); });
-  Store.on('task_count', function () { render(); });
-  Store.on('portfolio_value', function () { render(); });
-  Store.on('upx_balance', function () { render(); });
+  // Listen for external changes (debounced to prevent cascading re-renders)
+  const debouncedLiqRender = debouncedRender(render);
+  Store.on('sparklet_balance', debouncedLiqRender);
+  Store.on('task_count', debouncedLiqRender);
+  Store.on('portfolio_value', debouncedLiqRender);
+  Store.on('upx_balance', debouncedLiqRender);
 }
 
 
@@ -905,11 +919,12 @@ function initPortfolio() {
 
   render();
 
-  // Listen for external changes
-  Store.on('sparklet_balance', function () { render(); });
-  Store.on('sparklet_price', function () { render(); });
-  Store.on('task_count', function () { render(); });
-  Store.on('portfolio_value', function () { render(); });
+  // Listen for external changes (debounced)
+  const debouncedPortfolioRender = debouncedRender(render);
+  Store.on('sparklet_balance', debouncedPortfolioRender);
+  Store.on('sparklet_price', debouncedPortfolioRender);
+  Store.on('task_count', debouncedPortfolioRender);
+  Store.on('portfolio_value', debouncedPortfolioRender);
 }
 
 
